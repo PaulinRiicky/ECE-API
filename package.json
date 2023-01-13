@@ -1,0 +1,12 @@
+{
+  "name": "controle_estoque",
+  "version": "1.0.0",
+  "description": "Teste de API pro tcc",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3"
+  }
+}
