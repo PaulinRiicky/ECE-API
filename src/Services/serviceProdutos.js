@@ -21,4 +21,14 @@ async function updateProduct(name, provider, category, composition, unityPrice, 
 
 }
 
+async function deleteProduct(id){
+    const sql = 'delete from produto where id_produto = ?'
+
+    const data = [id]
+
+    const conn = await database.connect()
+    conn.query(sql,data)
+    conn.end()
+}
+
 export default {createProduct, updateProduct}
