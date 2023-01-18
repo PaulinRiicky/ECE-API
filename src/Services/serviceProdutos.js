@@ -11,7 +11,7 @@ async function createProduct(name, provider, category, composition, unityPrice, 
 }
 
 async function updateProduct(name, provider, category, composition, unityPrice, actualQtd, minQtd, maxQtd, id){
-    const sql = 'update cadastro_loja set nome_produto = ?, FK_id_fornecedor = ?, categoria_produto = ?, composicao_produto = ?, preco_unitario = ?, quantidade_produto = ?, quantidade_minima = ?, quantidade_maxima = ? where id_produto = ?'
+    const sql = 'update produto set nome_produto = ?, FK_id_fornecedor = ?, categoria_produto = ?, composicao_produto = ?, preco_unitario = ?, quantidade_produto = ?, quantidade_minima = ?, quantidade_maxima = ? where id_produto = ?'
 
     const data = [name, provider, category, composition, unityPrice, actualQtd, minQtd, maxQtd, id]
 

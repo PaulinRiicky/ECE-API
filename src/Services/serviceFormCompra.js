@@ -10,4 +10,14 @@ async function createPurchase(customer, contact, paymentDeadline, purchaseDate, 
     conn.end();
 }
 
-export default {createPurchase}
+async function updatePurchase(customer, contact, paymentDeadline, purchaseDate, qtd, unityPrice, totalPrice, sendDeadline, paymentWay, provider, product, id){
+    const sql = 'update formulario_compra set nome_comprador = ?, contato = ?, prazo_pagamento = ?, data_compra = ?, quantidade = ?, valor_unitario = ?, valor_total = ?, prazo_entrega = ?, forma_pagamento = ?, FK_cod_forn = ?, FK_cod_prod = ? where id_compra = ?'
+
+    const data = [customer, contact, paymentDeadline, purchaseDate, qtd, unityPrice, totalPrice, sendDeadline, paymentWay, provider, product, id]
+
+    const conn = await database.connect();
+    conn.query(sql, data);
+    conn.end();
+}
+
+export default {createPurchase, updatePurchase}
