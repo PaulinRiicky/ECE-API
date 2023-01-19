@@ -31,4 +31,4 @@ async function deleteProduct(id){
     conn.end()
 }
 
-export default {createProduct, updateProduct}
+export default {createProduct, updateProduct, deleteProduct}

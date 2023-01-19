@@ -20,4 +20,14 @@ async function updateStore(storeName, corporateName, owner, businessLine, contac
     conn.end();
 }
 
-export default {createStore, updateStore};
+async function deleteStore(id){
+    const sql = 'delete from cadastro_loja where id_loja = ?'
+
+    const data = [id]
+
+    const conn = await database.connect()
+    conn.query(sql,data)
+    conn.end()
+}
+
+export default {createStore, updateStore, deleteStore};
