@@ -11,7 +11,7 @@ async function createProvider(corporateName, email, contact, phone, cnpj, adress
 }
 
 async function updateProvider(corporateName, email, contact, phone, cnpj, adress, stateInsc, productLine, id){
-    const sql = 'update fornecedores set razao_social = ?, email_fornecedor = ?, contato_fornecedor = ?, telefone_fornecedor = ?, cnpj_fornecedor = ?, endereco_fornecedor = ?, inscricao_estadual = ?, linha_produto = ? where id_fornacedor = ?'
+    const sql = 'update fornecedores set razao_social = ?, email_fornecedor = ?, contato_fornecedor = ?, telefone_fornecedor = ?, cnpj_fornecedor = ?, endereco_fornecedor = ?, inscricao_estadual = ?, linha_produto = ? where id_fornecedor = ?'
 
     const data = [corporateName, email, contact, phone, cnpj, adress, stateInsc, productLine, id]
 
@@ -20,4 +20,14 @@ async function updateProvider(corporateName, email, contact, phone, cnpj, adress
     conn.end()
 }
 
-export default {createProvider, updateProvider}
+async function deleteProvider(id){
+    const sql = 'delete from fornecedores where id_fornecedor = ?'
+
+    const data = [id]
+
+    const conn = await database.connect()
+    conn.query(sql, data)
+    conn.end()
+}
+
+export default {createProvider, updateProvider, deleteProvider}
