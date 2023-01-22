@@ -20,4 +20,14 @@ async function updateSale(email, phone, saleDate, qtd, unityPrice, totalPrice, d
     conn.end()
 }
 
-export default {createSale, updateSale}
+async function deleteSale(id){
+    const sql = 'delete from formulario_vendas where id_venda = ?'
+
+    const data = [id]
+
+    const conn = await database.connect()
+    conn.query(sql,data)
+    conn.end()
+}
+
+export default {createSale, updateSale, deleteSale}
