@@ -20,4 +20,13 @@ async function updateCustomer(name, email, contact, phone, cellphone, cpf, cnpj,
     conn.end();
 }
 
+async function listCustomer(){
+    const sql = 'select * from clientes';
+
+
+    const conn = await database.connect();
+    conn.query(sql);
+    conn.end();
+}
+
 export default {createCustomer, updateCustomer};
