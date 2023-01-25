@@ -29,4 +29,13 @@ async function listCustomer(){
     conn.end();
 }
 
-export default {createCustomer, updateCustomer};
+async function deleteCustomer(id){
+    const sql = 'delete from clientes where id = ?';
+    const data = [id]
+
+    const conn = await database.connect()
+    conn.query(sql, data);
+    conn.end();
+}
+
+export default {createCustomer, updateCustomer, listCustomer, deleteCustomer};
