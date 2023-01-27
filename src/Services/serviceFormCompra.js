@@ -20,4 +20,13 @@ async function updatePurchase(customer, contact, paymentDeadline, purchaseDate, 
     conn.end();
 }
 
-export default {createPurchase, updatePurchase}
+async function deletePurchase(id){
+    const sql = 'delete from formulario_compra where id = ?';
+    const data = [id]
+
+    const conn = await database.connect()
+    conn.query(sql, data);
+    conn.end();
+}
+
+export default {createPurchase, updatePurchase, deletePurchase}
