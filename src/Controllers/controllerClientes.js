@@ -15,11 +15,10 @@ routes.get("/", async (request, response) => {
     const {} = request.body;
 })
 */
-routes.put("/:id", async (request, response) => {
-    const { id } = request.params;
-    const { name, email, contact, phone, cellphone, cpf, cnpj, adress, stateInsc, paymentWay, actionLine } = request.body;
+routes.put("/", async (request, response) => {
+    const { id, name, email, contact, phone, cellphone, cpf, cnpj, adress, stateInsc, paymentWay, actionLine } = request.body;
 
-    await service.updateCustomer(name, email, contact, phone, cellphone, cpf, cnpj, adress, stateInsc, paymentWay, actionLine, id)
+    await service.updateCustomer(id, name, email, contact, phone, cellphone, cpf, cnpj, adress, stateInsc, paymentWay, actionLine)
 
     response.status(200).send("Successful update!")
 })
