@@ -110,4 +110,4 @@ create table cadastro_loja(
 );
 select * from cadastro_loja;
 
-select fc.nome_comprador, p.nome_produto from formulario_compra fc inner join produto p on p.id_compra = fc.FK_cod_prod where p.id_produto = 1;
+select fc.nome_comprador, p.nome_produto from formulario_compra fc inner join produto p on p.id_produto = fc.FK_cod_prod where p.id_produto = 1;
