@@ -72,6 +72,10 @@ create table formulario_vendas(
     constraint FK_id_cli foreign key(FK_id_cli) references clientes(id_cliente)
 );
 select * from formulario_vendas;
+select fv.id_venda, c.nome_cliente, c.cpf_cliente from formulario_vendas fv inner join clientes c on fv.FK_id_cli = c.id_cliente;
+
+
+
 
 create table formulario_compra(
 	id_compra int auto_increment primary key,
@@ -90,8 +94,11 @@ create table formulario_compra(
     constraint FK_cod_forn foreign key(FK_cod_forn) references fornecedores(id_fornecedor),
     constraint FK_cod_prod foreign key(FK_cod_prod) references clientes(id_cliente)
 );
-select * from formulario_compra;
+#select * from formulario_compra;
+#select fc.nome_comprador, p.nome_produto from formulario_compra fc inner join produto p on p.id_produto = fc.FK_cod_prod #where p.id_produto = 1;
 drop table formulario_compra;
+
+
 #Qual seria a chave primaria da tabela de cadastro de lojas?
 create table cadastro_loja(
 	id_loja int auto_increment primary key,
@@ -110,4 +117,3 @@ create table cadastro_loja(
 );
 select * from cadastro_loja;
 
-select fc.nome_comprador, p.nome_produto from formulario_compra fc inner join produto p on p.id_produto = fc.FK_cod_prod where p.id_produto = 1;
